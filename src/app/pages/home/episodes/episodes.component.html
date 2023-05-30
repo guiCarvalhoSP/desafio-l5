@@ -1,0 +1,6 @@
+<div class="w-100">
+  <div *ngFor="let episode of episodes">
+    <p><span>Nome: </span>{{ episode.name }}</p>
+    <p><span>Data de estreia: </span>{{ episode.air_date | date:'dd/MM/yyyy' }}</p>
+  </div>
+</div>
