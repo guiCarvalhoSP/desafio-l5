@@ -13,7 +13,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getResponseFromAUrl(url: string) {
-    return this.http.get(url);
+    return this.http.get<any>(url);
   }
 
   getAllEpisodeList(page?: string | number) {
