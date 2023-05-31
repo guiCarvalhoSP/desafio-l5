@@ -41,6 +41,7 @@ export class HomeComponent {
         take(1),
         catchError((error) => {
           console.error(error);
+          this.isLoading = false
           return EMPTY;
         })
       )
