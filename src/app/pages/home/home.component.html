@@ -2,10 +2,12 @@
 
   <h1>Pesquise por dados da série Rick And Morty</h1>
 
-  <form [formGroup]="searchForm" class="search"  >
-    <input type="text" placeholder="Pesquisar episódio..." formControlName="search" (change)="renderFilteredEpisodes()">
-    <div>
-      <mat-icon aria-hidden="false" aria-label="Icone de lupa" fontIcon="search"></mat-icon>
+  <form [formGroup]="searchForm" class="search">
+    <div class="d-flex justify-content-center align-items-center">
+      <input type="text" placeholder="Pesquisar episódio..." formControlName="search" (change)="renderFilteredEpisodes()">
+      <div class="search-icon d-flex justify-content-center align-items-center">
+        <mat-icon aria-hidden="false" aria-label="Icone de lupa" fontIcon="search"></mat-icon>
+      </div>
     </div>
   </form>
 
