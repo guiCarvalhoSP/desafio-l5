@@ -11,7 +11,7 @@
     </div>
   </form>
 
-  <div *ngIf="episodesList.length > 0" class="mt-5">
+  <div *ngIf="episodesList.length > 0" class="py-5">
     <h2>Lista de episódios</h2>
     <app-episodes [episodes]="episodesList" (scrollEmmiter)="renderEpisodesList()">
     </app-episodes>

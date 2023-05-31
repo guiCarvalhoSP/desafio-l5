@@ -36,7 +36,7 @@ export class HomeComponent {
       this.useEpisodeResponse(
         this.apiService.getResponseFromAUrl(this.nextEpisodeUrl)
       );
-    } else if(!this.searchForm.get('search')?.value) {
+    } else if(!this.searchForm.get('search')?.value && this.episodesList.length == 0) {
       this.isLoading = true;
       this.useEpisodeResponse(this.apiService.getAllEpisodeList());
     } 
