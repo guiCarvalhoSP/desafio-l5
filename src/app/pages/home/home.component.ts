@@ -10,6 +10,8 @@ import { EMPTY, Observable } from 'rxjs';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  isLoading: boolean = false;
+
   episodesList: IEpisode[] = [];
   nextEpisodeUrl?: string | null;
 
@@ -20,11 +22,13 @@ export class HomeComponent {
   }
 
   renderEpisodesList() {
+    this.isLoading = true;
     this.useEpisodeResponse(this.apiService.getAllEpisodeList());
   }
 
   loadNextEpisodePage() {
     if (this.nextEpisodeUrl) {
+      this.isLoading = true;
       this.useEpisodeResponse(
         this.apiService.getResponseFromAUrl(this.nextEpisodeUrl)
       );
@@ -45,6 +49,7 @@ export class HomeComponent {
           this.episodesList = [...this.episodesList, ...value.results];
           this.nextEpisodeUrl = value.info.next;
         },
+        complete: () => (this.isLoading = false),
       });
   }
 }

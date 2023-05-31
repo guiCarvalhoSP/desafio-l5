@@ -3,12 +3,13 @@
 
   <div *ngIf="episodesList.length > 0" class="mt-5">
     <h2>Lista de episódios</h2>
-    <app-episodes
-      [episodes]="episodesList"
-      (scrollEmmiter)="loadNextEpisodePage()"
-    >
-
+    <app-episodes [episodes]="episodesList" (scrollEmmiter)="loadNextEpisodePage()">
     </app-episodes>
   </div>
 
+  <div *ngIf="isLoading" class="d-flex justify-content-center my-4">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Carregando...</span>
+    </div>
+  </div>
 </div>
