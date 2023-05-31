@@ -1,9 +1,17 @@
 <div class="">
+
   <h1>Pesquise por dados da série Rick And Morty</h1>
+
+  <form [formGroup]="searchForm" class="search"  >
+    <input type="text" placeholder="Pesquisar episódio..." formControlName="search" (change)="renderFilteredEpisodes()">
+    <div>
+      <mat-icon aria-hidden="false" aria-label="Icone de lupa" fontIcon="search"></mat-icon>
+    </div>
+  </form>
 
   <div *ngIf="episodesList.length > 0" class="mt-5">
     <h2>Lista de episódios</h2>
-    <app-episodes [episodes]="episodesList" (scrollEmmiter)="loadNextEpisodePage()">
+    <app-episodes [episodes]="episodesList" (scrollEmmiter)="renderEpisodesList()">
     </app-episodes>
   </div>
 

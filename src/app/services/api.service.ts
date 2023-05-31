@@ -22,4 +22,8 @@ export class ApiService {
     }
     return this.http.get<IEpisodes>(`${this.url}/episode`);
   }
+
+  getFilteredEpisodeList(name: string) {
+    return this.http.get<IEpisodes>(`${this.url}/episode`, {params: {name: name}});
+  }
 }
