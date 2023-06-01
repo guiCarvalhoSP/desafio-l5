@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -11,7 +12,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatCardModule,
     MatProgressSpinnerModule,
     MatIconModule,
+    MatSnackBarModule
   ],
-  exports: [MatCardModule, MatProgressSpinnerModule, MatIconModule],
+  exports: [MatCardModule, MatProgressSpinnerModule, MatIconModule, MatSnackBarModule],
 })
 export class MaterialModule {}

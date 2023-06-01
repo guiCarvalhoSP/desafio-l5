@@ -2,7 +2,7 @@
 
   <h1>Pesquise por dados da série Rick And Morty</h1>
 
-  <form [formGroup]="searchForm" class="search">
+  <form [formGroup]="searchForm" class="search mt-5">
     <div class="d-flex justify-content-center align-items-center">
       <input type="text" placeholder="Pesquisar episódio..." formControlName="search" (change)="renderFilteredEpisodes()">
       <div class="search-icon d-flex justify-content-center align-items-center">
@@ -10,6 +10,10 @@
       </div>
     </div>
   </form>
+
+  <div *ngIf="notFound" class="alert alert-warning my-3">
+    Nenhum resultado encontrado! Tente buscar por outros nomes.
+  </div>
 
   <div *ngIf="episodesList.length > 0" class="py-5">
     <h2>Lista de episódios</h2>
