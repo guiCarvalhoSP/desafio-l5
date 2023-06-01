@@ -5,8 +5,8 @@ import { EMPTY, Observable } from 'rxjs';
 import { catchError, take } from 'rxjs/operators';
 import { ApiService } from 'src/app/services/api.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
-import { ICharacter } from 'src/app/shared/interfaces/ICharacter';
-import { IEpisode } from 'src/app/shared/interfaces/IEpisodes';
+import { ICharacter, ICharacters } from 'src/app/shared/interfaces/ICharacter';
+import { IEpisode, IEpisodes } from 'src/app/shared/interfaces/IEpisodes';
 
 enum ListNames {
   episodes = 'episodes',
@@ -29,7 +29,7 @@ export class HomeComponent {
   nextEpisodeUrl?: string | null;
 
   charactersList: ICharacter[] = [];
-  nextcharactersUrl?: string | null;
+  nextCharactersUrl?: string | null;
 
   constructor(
     private apiService: ApiService,
@@ -55,16 +55,25 @@ export class HomeComponent {
     }
   }
 
+  renderCharactersList() {
+    if (this.nextCharactersUrl) {
+      this.isLoading = true;
+      this.useCharacterResponse(this.apiService.getResponseFromAUrl(this.nextCharactersUrl));
+    } else if (!this.searchForm.get('search')?.value && this.charactersList.length == 0) {
+      this.isLoading = true;
+      this.useCharacterResponse(this.apiService.getAllCharacterList());
+    }
+  }
+
   renderFilteredList() {
     let queryParam: string = this.searchForm.get('search')?.value;
     this.isLoading = true;
-    console.log(this.listRendered);
     if (this.listRendered == ListNames.episodes) {
       this.episodesList = [];
-      this.useEpisodeResponse(
-        this.apiService.getFilteredEpisodeList(queryParam)
-      );
+      this.useEpisodeResponse(this.apiService.getFilteredEpisodeList(queryParam));
     } else if (this.listRendered == ListNames.characters) {
+      this.charactersList = [];
+      this.useCharacterResponse(this.apiService.getFilteredCharacterList(queryParam));
     }
   }
 
@@ -72,13 +81,13 @@ export class HomeComponent {
     console.log(event);
     switch (event) {
       case 0:
-        console.log('case 0');
         this.listRendered = ListNames.episodes;
         if (this.searchForm.get('search')?.value) this.renderFilteredList();
         break;
       case 1:
-        console.log('case 1');
         this.listRendered = ListNames.characters;
+        if (this.searchForm.get('search')?.value) this.renderFilteredList();
+          else if(this.charactersList.length == 0) this.renderCharactersList();
         break;
       default:
         console.log('default');
@@ -90,19 +99,9 @@ export class HomeComponent {
     this.snackbarService.openSnackBar('Aconteceu algum erro! Tente novamente mais tarde');
   }
 
-  private useEpisodeResponse(observable: Observable<any>) {
+  private useEpisodeResponse(observable: Observable<IEpisodes>) {
     this.notFound = false;
-    observable
-      .pipe(
-        take(1),
-        catchError((error: HttpErrorResponse) => {
-          console.error(error.error?.error);
-          if (error.status == 404) this.notFound = true;
-          else this.openErrorSnackBar();
-          this.isLoading = false;
-          return EMPTY;
-        })
-      )
+    this.pipeFunctions(observable)
       .subscribe({
         next: (value) => {
           this.episodesList = [...this.episodesList, ...value.results];
@@ -110,5 +109,30 @@ export class HomeComponent {
         },
         complete: () => (this.isLoading = false),
       });
+  }
+
+  private useCharacterResponse(observable: Observable<ICharacters>) {
+    this.notFound = false;
+    this.pipeFunctions(observable)
+      .subscribe({
+        next: (value) => {
+          this.charactersList = [...this.charactersList, ...value.results];
+          this.nextCharactersUrl = value.info.next;
+        },
+        complete: () => (this.isLoading = false),
+      });
+  }
+
+  private pipeFunctions(observable:Observable<any>) {
+    return observable.pipe(
+      take(1),
+      catchError((error: HttpErrorResponse) => {
+        console.error(error.error?.error);
+        if (error.status == 404) this.notFound = true;
+        else this.openErrorSnackBar();
+        this.isLoading = false;
+        return EMPTY;
+      })
+    )
   }
 }
