@@ -78,7 +78,6 @@ export class HomeComponent {
   }
 
   changeRenderList(event: number) {
-    console.log(event);
     switch (event) {
       case 0:
         this.listRendered = ListNames.episodes;
@@ -90,7 +89,6 @@ export class HomeComponent {
           else if(this.charactersList.length == 0) this.renderCharactersList();
         break;
       default:
-        console.log('default');
         this.openErrorSnackBar();
     }
   }
