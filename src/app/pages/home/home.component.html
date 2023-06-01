@@ -1,7 +1,7 @@
 <div class="">
 
   <h1>Pesquise por dados da série Rick And Morty</h1>
-  <span> {{ listRendered }}</span>
+
   <form [formGroup]="searchForm" class="search mt-5">
     <div class="d-flex justify-content-center align-items-center">
       <input type="text" placeholder="Pesquisar episódio..." formControlName="search"
@@ -27,8 +27,8 @@
     </mat-tab>
     <mat-tab label="Personagens">
       <div *ngIf="listRendered == 'characters'" class="py-5">
-        <h2>Lista de episódios</h2>
-        <app-characters></app-characters>
+        <h2>Lista de personagens</h2>
+        <app-characters [characters]="charactersList"></app-characters>
       </div>
     </mat-tab>
   </mat-tab-group>
