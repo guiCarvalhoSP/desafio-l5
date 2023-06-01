@@ -5,6 +5,7 @@ import { take, catchError } from 'rxjs/operators';
 import { EMPTY, Observable } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -65,8 +66,8 @@ export class HomeComponent {
     observable
       .pipe(
         take(1),
-        catchError((error) => {
-          console.error(error);
+        catchError((error: HttpErrorResponse) => {
+          console.error(error.error?.error);
           if(error.status == 404) this.notFound = true;
            else this.openErrorSnackBar();
           this.isLoading = false;
