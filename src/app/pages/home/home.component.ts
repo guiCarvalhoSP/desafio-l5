@@ -7,6 +7,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
 
+enum ListNames {
+  episodes = 'episodes',
+  characters = 'characters',
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,6 +22,7 @@ export class HomeComponent {
   isLoading: boolean = false;
   notFound: boolean = false;
 
+  listRendered: string = ListNames.episodes;
   episodesList: IEpisode[] = [];
   nextEpisodeUrl?: string | null;
 
@@ -46,11 +52,35 @@ export class HomeComponent {
     } 
   }
 
-  renderFilteredEpisodes() {
+  renderFilteredList() {
     let queryParam: string = this.searchForm.get('search')?.value;
     this.isLoading = true;
-    this.episodesList = [];
-    this.useEpisodeResponse(this.apiService.getFilteredEpisodeList(queryParam));
+    console.log(this.listRendered);
+    if(this.listRendered == ListNames.episodes) {
+      this.episodesList = [];
+      this.useEpisodeResponse(this.apiService.getFilteredEpisodeList(queryParam));
+    }
+    else if(this.listRendered == ListNames.characters) {
+
+    }
+  }
+
+  changeRenderList(event: number) {
+    console.log(event);
+    switch(event) {
+      case 0:
+        console.log('case 0');
+        this.listRendered = ListNames.episodes;
+        if(this.searchForm.get('search')?.value) this.renderFilteredList();
+        break;
+      case 1: 
+        console.log('case 1');
+        this.listRendered = ListNames.characters;
+        break;
+      default: 
+        console.log('default')
+        this.openErrorSnackBar();
+    }
   }
 
   openErrorSnackBar() {
