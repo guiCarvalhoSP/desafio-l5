@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 
 import { IEpisodes } from '../shared/interfaces/IEpisodes';
+import { ICharacters } from '../shared/interfaces/ICharacter';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,16 @@ export class ApiService {
 
   getFilteredEpisodeList(name: string) {
     return this.http.get<IEpisodes>(`${this.url}/episode`, {params: {name: name}});
+  }
+
+  getAllCharacterList(page?: string | number) {
+    if(page) {
+      return this.http.get<ICharacters>(`${this.url}/character`, {params: {page: page}});
+    }
+    return this.http.get<ICharacters>(`${this.url}/character`);
+  }
+
+  getFilteredCharacterList(name: string) {
+    return this.http.get<ICharacters>(`${this.url}/character`, {params: {name: name}});
   }
 }
