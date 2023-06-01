@@ -9,11 +9,13 @@ import { PagesModule } from './pages/pages.module';
 import { MaterialModule } from './shared/material/material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
