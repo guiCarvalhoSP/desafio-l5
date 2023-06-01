@@ -1,0 +1,14 @@
+@import 'styling';
+
+.navbar {
+  background-image: linear-gradient(to right, $indigo 50%, $dark-green, $green);
+  &-brand {
+    font-size: 2em;
+    color: #00afc6;
+    font-family: 'Alegrya sans', sans-serif;
+    font-weight: 700;
+    text-shadow: 0px 0px 5px $green;
+  }
+}
+
+

@@ -1,0 +1,47 @@
+<div class="character-modal">
+  <div class="d-flex justify-content-end p-3"  data-bs-theme="dark">
+    <button class="close-button" (click)="onNoClick()">X</button>
+  </div>
+  <div mat-dialog-title class="pt-2 d-flex justify-content-between align-items-center">
+    <img [src]="character.image" (alt)="character.name" class="rounded">
+    <h3>{{ character.name }}</h3>
+  </div>
+  
+  <div mat-dialog-content class="d-flex ">
+    <ul>
+      <li>
+        <p><span>Status: </span> {{ character.status }}</p>
+      </li>
+  
+      <li>
+        <p><span>Espécie: </span> {{ character.species }}</p>
+      </li>
+  
+      <li>
+        <p><span>Origem: </span> {{ character.origin.name }}</p>
+      </li>
+  
+    </ul>
+  
+    <ul>
+      <li>
+        <p><span>Gênero: </span> {{ character.gender }}</p>
+      </li>
+  
+      <li>
+        <p><span>Tipo espécie: </span> {{ character.type }}</p>
+      </li>
+  
+  
+      <li>
+        <p><span>Localização: </span> {{ character.location.name }}</p>
+      </li>
+  
+    </ul>
+  
+  
+  </div>
+  <div mat-dialog-actions>
+    <button class="btn btn-dark" (click)="onNoClick()">Fechar</button>
+  </div>
+</div>

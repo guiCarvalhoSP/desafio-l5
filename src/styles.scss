@@ -37,4 +37,9 @@ $desafio-l5-theme: mat.define-light-theme((
 @import 'definitions';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-mdc-tab-labels .mat-mdc-tab{
+  font-size: 1.4em;
+  font-weight: 700;
+  font-family: 'Alegreya sans', sans-serif;
+}
