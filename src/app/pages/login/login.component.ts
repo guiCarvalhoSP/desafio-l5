@@ -1,5 +1,6 @@
 import { Component, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   templateUrl: './login.component.html',
@@ -9,6 +10,7 @@ export class LoginComponent implements OnChanges{
   loginForm: FormGroup;
   hide: boolean = true;
   constructor(
+    private loginService: LoginService,
     formBuilder: FormBuilder
   ) {
     this.loginForm = formBuilder.group({
@@ -22,8 +24,10 @@ export class LoginComponent implements OnChanges{
 
   }
 
-  action() {
-    console.log(this.loginForm.get('password')?.hasError('minlength'));
+  login() {
+    let email = this.loginForm.get('email')?.value;
+    let password = this.loginForm.get('password')?.value;
 
+    this.loginService.login(email, password);
   }
 }
