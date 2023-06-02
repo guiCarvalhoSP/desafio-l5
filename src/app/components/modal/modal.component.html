@@ -2,34 +2,34 @@
   <div class="d-flex justify-content-end p-3"  data-bs-theme="dark">
     <button class="close-button" (click)="onNoClick()">X</button>
   </div>
-  <div mat-dialog-title class="pt-2 d-flex justify-content-between align-items-center">
-    <img [src]="character.image" (alt)="character.name" class="rounded">
-    <h3>{{ character.name }}</h3>
+  <div mat-dialog-title class="d-flex justify-content-between align-items-center mx-3 p-0">
+    <img [src]="character.image" (alt)="character.name" class="rounded me-5" >
+    <h4>{{ character.name }}</h4>
   </div>
   
-  <div mat-dialog-content class="d-flex ">
-    <ul>
-      <li>
-        <p><span>Status: </span> {{ character.status | statusTranslate}}</p>
-      </li>
-  
+  <div mat-dialog-content class="d-flex justify-content-between mt-3">
+    <ul class="information">
       <li>
         <p><span>Espécie: </span> {{ character.species | unknow }}</p>
       </li>
-  
+
+      <li>
+        <p><span>Status: </span> {{ character.status | statusTranslate}}</p>
+      </li>
+
       <li>
         <p><span>Origem: </span> {{ character.origin.name | unknow  }}</p>
       </li>
   
     </ul>
   
-    <ul>
+    <ul class="information">
+      <li>
+        <p *ngIf="character.type"><span>Tipo: </span> {{ character.type | unknow }}</p>
+      </li>
+
       <li>
         <p><span>Gênero: </span> {{ character.gender | unknow }}</p>
-      </li>
-  
-      <li>
-        <p><span>Tipo espécie: </span> {{ character.type | unknow }}</p>
       </li>
   
       <li>

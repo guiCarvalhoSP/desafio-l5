@@ -6,7 +6,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class UnknowPipe implements PipeTransform {
 
   transform(value: string, ...args: unknown[]): string {
-    return value.toLowerCase() != 'unknow' ? '?' : value;
+    let valueLowerCase = value.toLowerCase();
+
+    if(valueLowerCase == 'unknown' || valueLowerCase == '?') {
+      return '?'
+    }
+
+    return value;
   }
 
 }
