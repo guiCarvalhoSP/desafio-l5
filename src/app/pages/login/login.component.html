@@ -16,7 +16,7 @@
           </mat-error>
         </mat-form-field>
       
-        <mat-form-field appearance="outline" class="input">
+        <mat-form-field appearance="outline" class="input mt-2">
           <mat-label>Senha</mat-label>
           <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="Digite sua senha">
           <button mat-icon-button matSuffix class="me-2 eye-button" (click)="hide = !hide" [attr.aria-label]="'Esconder senha'" [attr.aria-pressed]="hide">
@@ -30,7 +30,7 @@
           </mat-error>
         </mat-form-field>
       
-        <button class="btn btn-lg btn-indigo" type="submit">Entrar</button>
+        <button class="btn btn-lg btn-indigo mt-4" type="submit">Entrar</button>
       
       </form>
     </mat-card-content>

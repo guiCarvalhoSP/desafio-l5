@@ -13,9 +13,12 @@
   a {
     color: $white;
     transition: .2s;
-
+    font-size: 1.3em;
+    text-decoration: underline transparent;
+    cursor: pointer;
     &:hover {
       color: $dark-green;
+      text-decoration: underline $dark-green;
     }
   }
 }
