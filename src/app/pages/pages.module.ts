@@ -1,16 +1,22 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home/home.component';
-import { EpisodesComponent } from './home/episodes/episodes.component';
-import { MaterialModule } from '../shared/material/material.module';
-import { SeasonPipe } from '../shared/season.pipe';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
+import { MaterialModule } from '../shared/material/material.module';
 import { CharactersComponent } from './home/characters/characters.component';
-import { StatusTranslatePipe } from '../shared/status-translate.pipe';
+import { EpisodesComponent } from './home/episodes/episodes.component';
+import { HomeComponent } from './home/home.component';
+import { PipesModule } from '../shared/pipes/pipes.module';
 
 @NgModule({
-  declarations: [HomeComponent, EpisodesComponent, SeasonPipe, CharactersComponent, StatusTranslatePipe],
-  imports: [CommonModule, MaterialModule, InfiniteScrollModule, ReactiveFormsModule],
+  declarations: [HomeComponent, EpisodesComponent, CharactersComponent],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    InfiniteScrollModule,
+    ReactiveFormsModule,
+    PipesModule,
+  ],
 })
 export class PagesModule {}

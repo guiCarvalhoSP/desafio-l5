@@ -1,15 +1,16 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './components/header/header.component';
+import { ModalComponent } from './components/modal/modal.component';
 import { PagesModule } from './pages/pages.module';
 import { MaterialModule } from './shared/material/material.module';
-import { HeaderComponent } from './components/header/header.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ModalComponent } from './components/modal/modal.component';
+import { PipesModule } from './shared/pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ModalComponent } from './components/modal/modal.component';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    PipesModule,
     PagesModule
   ],
   providers: [],
