@@ -11,7 +11,7 @@
         <img mat-card-avatar [src]="character.image" (alt)="character.name">
         <mat-card-title><span>{{ character.name }}</span></mat-card-title>
         <mat-card-subtitle>
-          <span>Espécie: </span> {{ character.species }} {{ character.type ? (' - ' + character.type) : ''}}
+          <span>Espécie: </span> {{ character.species | unknow }} {{ character.type ? (' - ' + character.type) : ''}}
           <br>
           <span>Status: </span> {{ character.status | statusTranslate }}
         </mat-card-subtitle>

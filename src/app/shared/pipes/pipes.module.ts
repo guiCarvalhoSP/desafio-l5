@@ -3,14 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { SeasonPipe } from './season.pipe';
 import { StatusTranslatePipe } from './status-translate.pipe';
-
-
+import { UnknowPipe } from './unknow.pipe';
 
 @NgModule({
-  declarations: [SeasonPipe, StatusTranslatePipe],
+  declarations: [SeasonPipe, StatusTranslatePipe, UnknowPipe],
   imports: [
     CommonModule
   ], 
-  exports: [SeasonPipe, StatusTranslatePipe]
+  exports: [SeasonPipe, StatusTranslatePipe, UnknowPipe]
 })
 export class PipesModule { }

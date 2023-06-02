@@ -10,31 +10,30 @@
   <div mat-dialog-content class="d-flex ">
     <ul>
       <li>
-        <p><span>Status: </span> {{ character.status }}</p>
+        <p><span>Status: </span> {{ character.status | statusTranslate}}</p>
       </li>
   
       <li>
-        <p><span>Espécie: </span> {{ character.species }}</p>
+        <p><span>Espécie: </span> {{ character.species | unknow }}</p>
       </li>
   
       <li>
-        <p><span>Origem: </span> {{ character.origin.name }}</p>
+        <p><span>Origem: </span> {{ character.origin.name | unknow  }}</p>
       </li>
   
     </ul>
   
     <ul>
       <li>
-        <p><span>Gênero: </span> {{ character.gender }}</p>
+        <p><span>Gênero: </span> {{ character.gender | unknow }}</p>
       </li>
   
       <li>
-        <p><span>Tipo espécie: </span> {{ character.type }}</p>
+        <p><span>Tipo espécie: </span> {{ character.type | unknow }}</p>
       </li>
   
-  
       <li>
-        <p><span>Localização: </span> {{ character.location.name }}</p>
+        <p><span>Localização: </span> {{ character.location.name | unknow  }}</p>
       </li>
   
     </ul>
