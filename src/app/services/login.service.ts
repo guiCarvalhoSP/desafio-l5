@@ -14,19 +14,24 @@ export class LoginService {
   constructor(private _snackbar: SnackbarService, private router: Router) {}
 
   login(email: string, password: string) {
-    console.log(email);
     let user = this.mockUsers.find((user) => user.email === email);
-    console.log(user)
     if (user && user.password == password) {
       localStorage.setItem('token', user.token);
-      this.router.navigate(['home']);
       this.isLogged.emit(true);
+      this.router.navigate(['home']);
     } else {
       this._snackbar.openSnackBar(
         'Email e/ou senha informados incorretos! Tente novamente.'
       );
       this.isLogged.emit(false);
     }
+  }
+
+  userIsLogged() {
+    if(localStorage.getItem('token')) 
+      return true;
+    
+    return false;
   }
 
   logout() {

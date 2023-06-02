@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -10,12 +10,14 @@ export class HeaderComponent {
 
   isLogged: boolean = false;
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService) {
+    this.isLogged = this.loginService.userIsLogged();
+  }
 
   ngOnInit() {
     this.loginService.isLogged.subscribe((value) => {
       this.isLogged = value;
-    })
+    });
   }
 
   logout() {

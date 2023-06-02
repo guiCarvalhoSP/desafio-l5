@@ -1,16 +1,18 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnChanges{
+export class LoginComponent {
   loginForm: FormGroup;
   hide: boolean = true;
   constructor(
     private loginService: LoginService,
+    private router: Router,
     formBuilder: FormBuilder
   ) {
     this.loginForm = formBuilder.group({
@@ -19,9 +21,10 @@ export class LoginComponent implements OnChanges{
     });
   }
 
-  ngOnChanges() {
-    console.log(this.loginForm.errors);
-
+  ngOnInit() {
+    if(localStorage.getItem('token')) {
+      this.router.navigate(['home']);
+    }
   }
 
   login() {
