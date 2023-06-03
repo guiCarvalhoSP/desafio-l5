@@ -1,1 +1,10 @@
 @import 'styling';
+
+.mat-mdc-tab-header {
+  background-color: $indigo !important;
+
+  .mat-mdc-tab-labels{
+    background-color: $indigo !important;
+  
+  }
+}
