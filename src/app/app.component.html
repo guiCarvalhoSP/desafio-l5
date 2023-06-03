@@ -2,3 +2,9 @@
 <div class="contaner">
   <router-outlet></router-outlet>
 </div>
+
+<button class="scrolltop rounded-circle d-flex align-items-center justify-content-center" *ngIf="isShowButton"
+  (click)="goToTop()">
+  <mat-icon aria-hidden="false" aria-label="Seta para cima - Botão para voltar ao topo da página"
+    fontIcon="arrow_upward"></mat-icon>
+</button>
