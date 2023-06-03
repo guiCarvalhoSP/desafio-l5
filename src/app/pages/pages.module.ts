@@ -8,9 +8,10 @@ import { CharactersComponent } from './home/characters/characters.component';
 import { EpisodesComponent } from './home/episodes/episodes.component';
 import { HomeComponent } from './home/home.component';
 import { PipesModule } from '../shared/pipes/pipes.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [HomeComponent, EpisodesComponent, CharactersComponent],
+  declarations: [HomeComponent, EpisodesComponent, CharactersComponent, LoginComponent],
   imports: [
     CommonModule,
     MaterialModule,

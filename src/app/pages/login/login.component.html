@@ -1,0 +1,41 @@
+<div class="d-flex flex-wrap justify-content-center my-5">
+  <mat-card class="card-login py-3">
+    <h5 class="text-center">Faça seu login</h5>
+    <p class="text-center">Para visualizar informações a respeito da série <span>Rick and Morty</span></p>
+    <mat-card-content class="mt-3">
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="d-flex flex-column align-items-center form">
+        <mat-form-field appearance="outline" class="input">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" placeholder="Digite o seu email" autocomplete="username">
+          <mat-error *ngIf="loginForm.get('email')?.hasError('email') && !loginForm.get('email')?.hasError('required')">
+            Por favor, digite um email válido.
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+            O email é <strong>obrigatório.</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="input mt-2">
+          <mat-label>Senha</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="Digite sua senha"
+            autocomplete="current-password">
+          <button mat-icon-button matSuffix class="me-2 eye-button" (click)="hide = !hide"
+            [attr.aria-label]="'Esconder senha'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error
+            *ngIf="loginForm.get('password')?.hasError('minlength') && !loginForm.get('password')?.hasError('required')">
+            Por favor, digite um uma senha com no mínimo 8 caracteres.
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            A senha é <strong>obrigatória.</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <button class="btn btn-lg btn-indigo mt-4" type="submit">Entrar</button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+</div>

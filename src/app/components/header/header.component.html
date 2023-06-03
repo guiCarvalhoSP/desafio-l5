@@ -1,5 +1,6 @@
 <nav class="navbar">
   <div class="container-fluid">
     <span class="navbar-brand mb-0">Rick and Morty</span>
+    <a *ngIf="isLogged" class="me-3" (click)="logout()">Sair</a>
   </div>
 </nav>
