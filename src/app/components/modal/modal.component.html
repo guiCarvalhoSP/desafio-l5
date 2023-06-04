@@ -3,46 +3,48 @@
     <button class="close-button" (click)="onNoClick()">X</button>
   </div>
   <div mat-dialog-title class="p-0">
-    <div class="d-flex justify-content-between align-items-center px-4">
-      <img [src]="character.image" (alt)="character.name" class="rounded" >
+    <div class="d-flex align-items-center px-4">
+      <img [src]="character.image" (alt)="character.name" class="rounded me-5" >
       <h4>{{ character.name }}</h4>
     </div>
   </div>
   
-  <div mat-dialog-content class="d-flex justify-content-between flex-wrap mt-3">
-    <ul class="information">
-      <li>
-        <p><span>Espécie: </span> {{ character.species | unknow }}</p>
-      </li>
-
-      <li>
-        <p><span>Status: </span> {{ character.status | statusTranslate}}</p>
-      </li>
-
-      <li>
-        <p><span>Origem: </span> {{ character.origin.name | unknow  }}</p>
-      </li>
-    </ul>
+  <div mat-dialog-content class=" mt-3 ">
+    <div class="content d-flex justify-content-between flex-wrap rounded p-2">
+      <ul class="information me-4">
+        <li>
+          <p><span>Espécie: </span> {{ character.species | unknow }}</p>
+        </li>
   
-    <ul class="information">
-      <li>
-        <p *ngIf="character.type"><span>Tipo: </span> {{ character.type | unknow }}</p>
-      </li>
-
-      <li>
-        <p><span>Gênero: </span> {{ character.gender | unknow }}</p>
-      </li>
+        <li>
+          <p><span>Status: </span> {{ character.status | statusTranslate}}</p>
+        </li>
   
-      <li>
-        <p><span>Localização: </span> {{ character.location.name | unknow  }}</p>
-      </li>
+        <li>
+          <p><span>Origem: </span> {{ character.origin.name | unknow  }}</p>
+        </li>
+      </ul>
+    
+      <ul class="information">
+        <li>
+          <p *ngIf="character.type"><span>Tipo: </span> {{ character.type | unknow }}</p>
+        </li>
   
-    </ul>
-  
-    <p class="w-75">Participou de <span>{{ character.episode.length }}</span> episódios</p>
-
+        <li>
+          <p><span>Gênero: </span> {{ character.gender | unknow }}</p>
+        </li>
+    
+        <li>
+          <p><span>Localização: </span> {{ character.location.name | unknow  }}</p>
+        </li>
+    
+      </ul>
+    
+      <p class="w-75">Participou de <span>{{ character.episode.length }}</span> episódios</p>
+    </div>
   </div>
+
   <div mat-dialog-actions>
-    <button class="btn btn-dark" (click)="onNoClick()">Fechar</button>
+    <button class="btn btn-lg btn-indigo" (click)="onNoClick()">Fechar</button>
   </div>
 </div>
