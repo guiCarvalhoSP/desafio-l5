@@ -1,6 +1,8 @@
 @import 'styling';
 
-
+.data-cards {
+  background-color: $indigo;
+}
 
 .search {
   input {
@@ -47,4 +49,19 @@
     width: 70px;
     height: 70px;
   }
+}
+
+.information-section {
+  h2 {
+    color: $white;
+  }
+
+  .information {
+    background-color: $light-indigo;
+  }
+}
+
+.mat-mdc-tab-header,
+.mat-mdc-tab-header .mat-mdc-tab-labels {
+  background-color: $light-indigo;
 }

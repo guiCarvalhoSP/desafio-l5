@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { authGuard } from './pages/login/guard/auth.guard';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -15,9 +16,18 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'not-found',
+    component: NotFoundComponent
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: 'home'
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'not-found'
   }
 ];
 

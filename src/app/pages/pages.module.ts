@@ -9,15 +9,18 @@ import { EpisodesComponent } from './home/episodes/episodes.component';
 import { HomeComponent } from './home/home.component';
 import { PipesModule } from '../shared/pipes/pipes.module';
 import { LoginComponent } from './login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [HomeComponent, EpisodesComponent, CharactersComponent, LoginComponent],
+  declarations: [HomeComponent, EpisodesComponent, CharactersComponent, LoginComponent, NotFoundComponent],
   imports: [
     CommonModule,
     MaterialModule,
     InfiniteScrollModule,
     ReactiveFormsModule,
     PipesModule,
+    RouterModule
   ],
 })
 export class PagesModule {}
