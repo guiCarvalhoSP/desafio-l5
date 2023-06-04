@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRouteSnapshot, Router } from '@angular/router';
-import { LoginService } from 'src/app/services/login.service';
+import { Router } from '@angular/router';
+
+import { LoginService } from 'src/app/shared/services/login.service';
 
 @Component({
   templateUrl: './login.component.html',

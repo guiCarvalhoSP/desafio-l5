@@ -3,6 +3,8 @@
 .card-character {
   font-size: 1.3em;
   width: 370px;
+  min-height: 200px;
+
   .btn-green {
     background-color: $green;
     color: $white;
@@ -12,8 +14,8 @@
   }
 
   img {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
   }
 
   span {

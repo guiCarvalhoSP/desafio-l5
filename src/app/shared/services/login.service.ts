@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { mockUsers as mock } from '../mocks/usersMocks';
+import { mockUsers as mock } from '../../mocks/usersMocks';
 import { SnackbarService } from './snackbar.service';
 import { Router } from '@angular/router';
 

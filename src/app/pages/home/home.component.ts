@@ -3,10 +3,11 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError, take } from 'rxjs/operators';
-import { ApiService } from 'src/app/services/api.service';
-import { SnackbarService } from 'src/app/services/snackbar.service';
+
 import { ICharacter, ICharacters } from 'src/app/shared/interfaces/ICharacter';
 import { IEpisode, IEpisodes } from 'src/app/shared/interfaces/IEpisodes';
+import { ApiService } from 'src/app/shared/services/api.service';
+import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 
 enum ListNames {
   episodes = 'episodes',

@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 
-import { IEpisodes } from '../shared/interfaces/IEpisodes';
-import { ICharacters } from '../shared/interfaces/ICharacter';
+import { ICharacters } from '../interfaces/ICharacter';
+import { IEpisodes } from '../interfaces/IEpisodes';
 
 @Injectable({
   providedIn: 'root'
