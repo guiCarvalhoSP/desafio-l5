@@ -1,27 +1,56 @@
-# DesafioL5
+# Desafio L5 Network
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.7.
+## Descrição 
+Este projeto é o teste técnico para candidatura a vaga de emprego oferecida pela empresa L5 Network. O projeto se baseia em consumir um API externa que possui dados da série Rick and Morty, onde foi construída uma aplicação que utiliza os dados oferecidos pela API. Descrição dos requisitos do desafio:
+- A aplicação deve seguir o modelo de dashboard;
 
-## Development server
+- Utilize a versão REST da API;
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- A aplicação deve conter ao menos uma página de listagem e uma página de detalhes, acessada ao clicar em um dos itens da listagem;
 
-## Code scaffolding
+- As listagens devem possuir paginação (preferencialmente scroll infinito);
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- A aplicação deve possuir uma barra de busca que: 
+  - Deve ser global na aplicação;
+  - Deve ser exibida apenas nas listagens;
+  - Deve filtrar a listagem ativa;
+  - Deve funcionar em todas as listagens implementadas; Ao trocar de uma listagem para outra (caso haja mais de uma tela de listagem) o filtro da barra de busca deve permanecer ativo, ou seja, a nova listagem já deverá ser carregada filtrada com base no termo;
 
-## Build
+- (OPCIONAL) Criar uma tela de login, uma página de perfil e um menu com nome do usuário logado e opção para realizar o logout; Não é necessário implementar uma API para isso, pode utilizar mocks;
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+[Docs da api](https://rickandmortyapi.com/)
+ ## 📁 Acesso ao projeto
 
-## Running unit tests
+Você pode ter acesso aos arquivos do projeto clicando [aqui](https://github.com/guiCarvalhoSP/desafio-trade-tecnology). 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🛠️ Como rodar o projeto
 
-## Running end-to-end tests
+- É necessário ter previamente instalado em sua máquina o [Git](https://git-scm.com/), [NPM](https://www.npmjs.com/) e [NodeJs](https://nodejs.org/en), em suas versões LTS, também necessário o uso do [Angular CLI](https://v15.angular.io/docs), em sua versão 16. Após instala-los e configura-los, poderá seguir para os próximos passos.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Execute seguinte comando em um terminal para clonar o projeto no diretório desejado:
+```sh
+git clone https://github.com/guiCarvalhoSP/desafio-l5.git
+```
 
-## Further help
+- Após clonar, abra o diretório no projeto em um terminal, e execute:
+```sh
+npm install
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Ao finalizar a instalação, você pode executar o programa com o seguinte comando:
+```sh
+ng serve
+```
+Após a inicialização no terminal, poderá ser acessado a aplicação através de um navegador, acessado a rota ``http://localhost:4200/``
+
+- Caso deseje realizar os testes unitários, execute o comando:
+```sh
+ng test
+```
+
+## ✔️ Tecnologias utilizadas
+- ``Angular 16``
+- ``RxJs``
+- ``Angular Material``
+- ``ngx-infinite-scroll``
+- ``Scss``
