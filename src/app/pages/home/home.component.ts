@@ -95,6 +95,7 @@ export class HomeComponent {
   }
 
   openErrorSnackBar() {
+    console.log('chamou');
     this.snackbarService.openSnackBar('Aconteceu algum erro! Tente novamente mais tarde');
   }
 
