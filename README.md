@@ -52,5 +52,6 @@ ng test
 - ``Angular 16``
 - ``RxJs``
 - ``Angular Material``
+- ``Bootstrap 5``
 - ``ngx-infinite-scroll``
 - ``Scss``
