@@ -6,7 +6,14 @@ import { LoginService } from 'src/app/shared/services/login.service';
   styleUrls: ['./perfil.component.scss'],
 })
 export class PerfilComponent {
-  user!: any;
+  user: any = {
+    name: '',
+    email: '',
+    image: '',
+    birthday: '',
+    password: '',
+    token: ''
+  };
 
   constructor(loginService: LoginService) {
     let token = localStorage.getItem('token');
