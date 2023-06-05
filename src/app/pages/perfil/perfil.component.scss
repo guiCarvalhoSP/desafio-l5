@@ -1,0 +1,30 @@
+@import 'styling';
+
+.perfil-card {
+  min-width: 370px;
+  max-width: 600px;
+
+  .btn-green {
+    background-color: $green;
+    color: $white;
+    &:hover {
+      background-color: $dark-green;
+    }
+  }
+
+  img {
+    width: 180px;
+    height: 180px;
+  }
+
+  p {
+    margin-bottom: 0px;
+    font-size: 1.3em;
+  }
+
+  span {
+    font-weight: 700;
+    color: $green;
+  }
+
+}

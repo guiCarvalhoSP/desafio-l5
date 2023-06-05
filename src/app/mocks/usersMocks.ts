@@ -1,22 +1,28 @@
 export const mockUsers = [
   {
-    user: 'João',
+    name: 'João Silva',
     email: 'joao@email.com',
+    image: '/assets/perfil-image.jpg',
+    birthday: '30/12/1900',
     password: '12345678',
-    token: 'token'
+    token: 'token1'
   },
 
   {
-    user: 'José',
+    name: 'José Alves',
     email: 'jose@email.com',
+    image: '/assets/perfil-image.jpg',
+    birthday: '30/12/1900',
     password: '12345678',
-    token: 'token'
+    token: 'token2'
   },
 
   {
-    user: 'Enzo',
+    name: 'Enzo Almeida',
     email: 'enzo@email.com',
+    image: '/assets/perfil-image.jpg',
+    birthday: '30/12/1900',
     password: '12345678',
-    token: 'token'
+    token: 'token3'
   },
 ];

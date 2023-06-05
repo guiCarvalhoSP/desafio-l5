@@ -10,9 +10,13 @@ import { LoginService } from 'src/app/shared/services/login.service';
 export class HeaderComponent {
 
   isLogged: boolean = false;
+  user: any = {};
+  token: string | null = '';
 
   constructor(private loginService: LoginService) {
     this.isLogged = this.loginService.userIsLogged();
+    this.token = localStorage.getItem('token');
+    this.user = this.loginService.obtainUserData(this.token);
   }
 
   ngOnInit() {
@@ -23,5 +27,6 @@ export class HeaderComponent {
 
   logout() {
     this.loginService.logout();
+    this.user = {};
   }
 }

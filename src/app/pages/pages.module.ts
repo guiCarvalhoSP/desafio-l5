@@ -11,9 +11,10 @@ import { PipesModule } from '../shared/pipes/pipes.module';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
-  declarations: [HomeComponent, EpisodesComponent, CharactersComponent, LoginComponent, NotFoundComponent],
+  declarations: [HomeComponent, EpisodesComponent, CharactersComponent, LoginComponent, NotFoundComponent, PerfilComponent],
   imports: [
     CommonModule,
     MaterialModule,

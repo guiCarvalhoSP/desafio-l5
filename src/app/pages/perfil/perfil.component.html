@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center">
+
+  <div class="perfil-card my-5">
+    <mat-card class="p-4">
+      <div class="d-flex">
+        <img mat-card-avatar [src]="user.image" (alt)="user.name">
+
+        <div class="ms-4">
+          <h3>Dados da conta:</h3>
+
+          <div>
+            <p><span>Nome: </span> {{ user.name }}</p>
+            <p><span>Email: </span> {{ user.email }}</p>
+            <p><span>Nascimento: </span> {{ user.birthday }}</p>
+
+          </div>
+        </div>
+
+      </div>
+
+    </mat-card>
+  </div>
+</div>

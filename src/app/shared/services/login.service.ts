@@ -39,4 +39,10 @@ export class LoginService {
     this.router.navigate(['login']);
     this.isLogged.emit(false);
   }
+
+  obtainUserData(token: any) {
+    if(token)
+      return this.mockUsers.find((user) => user.token === token);
+    return '';
+  }
 }

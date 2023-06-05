@@ -4,11 +4,17 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { authGuard } from './pages/login/guard/auth.guard';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [authGuard] 
+  },
+  {
+    path: 'user',
+    component: PerfilComponent,
     canActivate: [authGuard] 
   },
   {

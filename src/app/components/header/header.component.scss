@@ -10,7 +10,7 @@
     text-shadow: 0px 0px 5px $green;
   }
 
-  a {
+  a, button {
     color: $white;
     transition: .2s;
     font-size: 1.3em;
@@ -20,6 +20,10 @@
       color: $dark-green;
       text-decoration: underline $dark-green;
     }
+  }
+
+  button{
+    background-color: transparent;
   }
 }
 
